@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Третья страница GameFlick с обзорами обновлений игр для Android. Узнайте о новых версиях и скачивайте их прямо сейчас.">
+    <meta name="keywords" content="мобильные игры, Android, обзоры, обновления, страница 3, GameFlick">
+    <meta name="robots" content="index, follow">
+    <title>GameFlick - Страница 3</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="burger-menu" onclick="toggleMenu()" role="button" aria-label="Открыть меню">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <h1><a href="index.html"><span>G</span>ame<span>F</span>lick</a></h1>
+        <div class="header-icons">
+            <a href="https://t.me/Hdvideo_online" target="_blank" class="header-telegram"><i class="fab fa-telegram"></i></a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Сменить тему"><i class="fas fa-moon"></i></button>
+        </div>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+        <span class="close-btn" onclick="toggleMenu()" role="button" aria-label="Закрыть меню">×</span>
+        <a href="#" onclick="filterGames('Шутер')">Шутеры</a>
+        <a href="#" onclick="filterGames('Гонки')">Гонки</a>
+        <a href="#" onclick="filterGames('RPG')">RPG</a>
+        <a href="#" onclick="filterGames('Экшн')">Экшн</a>
+        <a href="#" onclick="filterGames('Приключения')">Приключения</a>
+        <a href="#" onclick="filterGames('Симуляторы')">Симуляторы</a>
+        <a href="#" onclick="filterGames('Стратегии')">Стратегии</a>
+        <a href="https://t.me/Hdvideo_online" target="_blank" class="telegram-icon"><i class="fab fa-telegram"></i> Telegram</a>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>GameFlick</h2>
+            <p>Добро пожаловать на GameFlick! Здесь представлены обновления игр.</p>
+        </section>
+
+        <section class="games-section">
+            <h2>Обновление игр</h2>
+            <div class="games-container">
+                <article class="game">
+                    <img src="https://i.ytimg.com/vi/7ZnaLmRZFlU/maxresdefault.jpg" alt="Скриншот игры MerX: Multiplayer PvP shooter" loading="lazy">
+                    <h3>MerX: Multiplayer PvP shooter</h3>
+                    <p class="genre"><i class="fas fa-crosshairs"></i> Жанр: Шутер</p>
+                    <p>MerX: Multiplayer PvP shooter - динамичный мобильный шутер, где вас ждут напряженные PvP-сражения. Объединяйтесь с друзьями, выбирайте стратегию и побеждайте соперников на кибераренах. Каждая карта требует тактического мышления и точных решений в перестрелках. Исследуйте культовые локации, совершенствуйте оружие и повышайте навыки бойца.</p>
+                    <div class="rating">★★★★☆ (4.5/5)</div>
+                    <a href="https://pdalife.to/merx-multiplayer-pvp-shooter-android-a50597.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://i.ytimg.com/vi/SjP8rc5VEhw/maxresdefault.jpg" alt="Скриншот игры World War Heroes" loading="lazy">
+                    <h3>World War Heroes</h3>
+                    <p class="genre"><i class="fas fa-bolt"></i> Жанр: Экшн</p>
+                    <p>World War Heroes: Вторая Мировая – отличный шутер на Андроид, созданный по сюжету знаменитой игры Modern Strike Online. Эта игра перенесет вас на поля сражений Второй Мировой войны, где вы сможете использовать военную технику для ведения боев. Погрузитесь в атмосферу исторических сражений, исследуйте легендарные локации и сражайтесь с противниками в режиме реального времени.</p>
+                    <div class="rating">★★★★☆ (4.3/5)</div>
+                    <a href="https://pdalife.to/world-war-heroes-android-a28659.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://avatars.mds.yandex.net/i?id=3d9ed9c9cfdee1219c04c55066693d5f_l-4860146-images-thumbs&n=13" alt="Скриншот игры Baldur's Gate: Dark Alliance" loading="lazy">
+                    <h3>Baldur's Gate: Dark Alliance</h3>
+                    <p class="genre"><i class="fas fa-crosshairs"></i> Жанр: RPG</p>
+                    <p> Baldur's Gate: Dark Alliance – это погружение в мир Dungeons & Dragons с напряженными битвами,
+                         головоломками кучей разных врагов, которых вы еще не видели. Игроку доступны оружие и заклинания,
+                         для борьбы против абсолютного зла, которое загрожает в этом мире</p>
+                    <div class="rating">★★★★☆ (4.5/5)</div>
+                    <a href="https://pdalife.to/baldur39s-gate-dark-alliance-android-a47043.html" target="_blank">Скачать</a>
+                </article>
+                <!-- Пока пусто, сюда будут перемещаться игры со второй страницы при добавлении новых -->
+            </div>
+        </section>
+
+        <div class="pagination">
+            <a href="index.html">1</a>
+            <a href="page2.html">2</a>
+            <a href="page3.html" class="active">3</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 GameFlick. Все права защищены.</p>
+        <a href="https://t.me/Hdvideo_online" target="_blank" class="telegram-icon">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            sideMenu.classList.toggle('active');
+        }
+
+        function filterGames(genre) {
+            const games = document.querySelectorAll('.game');
+            games.forEach(game => {
+                const gameGenre = game.querySelector('.genre').textContent;
+                game.style.display = gameGenre.includes(genre) ? 'block' : 'none';
+            });
+            toggleMenu();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const icon = document.querySelector('.theme-toggle i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+            localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-theme');
+            document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+        }
+    </script>
+</body>
+</html>

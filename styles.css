@@ -1,0 +1,539 @@
+/* Общие стили для всего документа */
+body {
+    font-family: Arial, sans-serif; /* Базовый шрифт */
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    background-color: #000000; /* Тёмный фон */
+    color: #ffffff; /* Белый текст для контраста */
+    line-height: 1.6; /* Межстрочный интервал */
+    display: flex; /* Гибкая структура */
+    flex-direction: column; /* Элементы вертикально */
+    min-height: 100vh; /* Минимальная высота на весь экран */
+    transition: background-color 0.3s, color 0.3s; /* Плавное переключение темы */
+}
+
+/* Светлая тема */
+body.light-theme {
+    background-color: #f0f0f0; /* Светлый фон */
+    color: #333; /* Тёмный текст */
+}
+
+/* Хедер */
+header {
+    background-color: #1b1d20; /* Тёмный фон */
+    color: white; /* Белый текст */
+    padding: 10px 15px; /* Отступы */
+    display: flex; /* Гибкая структура */
+    align-items: center; /* Вертикальное центрирование */
+    justify-content: space-between; /* Элементы по краям */
+    position: fixed; /* Фиксирован вверху */
+    top: 0; /* Привязка к верху */
+    width: 100%; /* Полная ширина */
+    z-index: 1000; /* Выше остального контента */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+/* Светлая тема для хедера */
+.light-theme header {
+    background-color: #ffffff; /* Белый фон */
+    color: #333; /* Тёмный текст */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+}
+
+/* Логотип */
+header h1 {
+    font-family: 'Orbitron', sans-serif; /* Игровой шрифт */
+    font-size: 1.8em; /* Размер текста (28.8px) */
+    margin: 0; /* Убираем отступы */
+    letter-spacing: 2px; /* Расстояние между буквами */
+    animation: glow 3s infinite alternate; /* Анимация свечения */
+    text-align: center; /* Центрирование текста */
+    flex-grow: 1; /* Логотип занимает центральное пространство */
+}
+
+/* Ссылка в логотипе */
+header h1 a {
+    color: inherit; /* Наследуем цвет */
+    text-decoration: none; /* Без подчёркивания */
+}
+
+/* Анимация свечения */
+@keyframes glow {
+    from { text-shadow: 0 0 5px #11fc1a, 0 0 10px #11fc1a; } /* Начало */
+    to { text-shadow: 0 0 20px #11fc1a, 0 0 30px #11fc1a; } /* Конец */
+}
+
+/* Бургер-меню */
+.burger-menu {
+    display: flex; /* Теперь отображается на всех экранах */
+    flex-direction: column; /* Полоски вертикально */
+    cursor: pointer; /* Указатель кликабельности */
+    margin-left: 10px; /* Отступ слева для выравнивания */
+}
+
+/* Полоски бургер-меню */
+.burger-menu .bar {
+    width: 20px; /* Ширина полоски */
+    height: 3px; /* Высота полоски */
+    background-color: #ffffff; /* Белый цвет */
+    margin: 3px 0; /* Отступы между полосками */
+}
+
+/* Светлая тема для бургер-меню */
+.light-theme .burger-menu .bar {
+    background-color: #333; /* Тёмный цвет */
+}
+
+/* Контейнер для иконок в шапке (Telegram + затемнение) */
+.header-icons {
+    display: flex; /* Гибкая структура для иконок */
+    align-items: center; /* Центрирование по вертикали */
+    gap: 5px; /* Уменьшенное расстояние между иконками (было 10px) */
+    margin-right: 10px; /* Отступ справа */
+}
+
+/* Иконка Telegram в шапке */
+.header-telegram {
+    color: #0088cc; /* Синий цвет Telegram */
+    font-size: 1.5em; /* Размер иконки (24px) */
+    text-decoration: none; /* Без подчёркивания */
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении на иконку Telegram */
+.header-telegram:hover {
+    color: #00aced; /* Светлее синий при наведении */
+}
+
+/* Светлая тема для иконки Telegram */
+.light-theme .header-telegram {
+    color: #0088cc; /* Синий цвет */
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+    background: none; /* Без фона */
+    border: none; /* Без рамки */
+    color: #ffffff; /* Белая иконка */
+    font-size: 1.5em; /* Увеличенный размер иконки (24px) */
+    cursor: pointer; /* Указатель кликабельности */
+    transition: color 0.3s; /* Плавное изменение цвета */
+}
+
+/* Светлая тема для кнопки темы */
+.light-theme .theme-toggle {
+    color: #333; /* Тёмная иконка */
+}
+
+/* Боковое меню */
+.side-menu {
+    height: 100%; /* Полная высота */
+    width: 0; /* Скрыто по умолчанию */
+    position: fixed; /* Фиксированное положение */
+    z-index: 1001; /* Выше хедера */
+    top: 0; /* Привязка к верху */
+    left: 0; /* Привязка к левому краю */
+    background-color: #1b1d20; /* Тёмный фон */
+    overflow-x: hidden; /* Без горизонтального скролла */
+    transition: 0.5s; /* Плавное открытие/закрытие */
+    padding-top: 50px; /* Отступ сверху */
+}
+
+/* Светлая версия бокового меню */
+.light-theme .side-menu {
+    background-color: #ffffff; /* Белый фон */
+    color: #333; /* Тёмный текст */
+}
+
+/* Ссылки в боковом меню */
+.side-menu a {
+    padding: 8px 12px; /* Отступы */
+    text-decoration: none; /* Без подчёркивания */
+    font-size: 1.1em; /* Размер текста (17.6px) */
+    color: #ffffff; /* Белый текст */
+    display: block; /* Полная ширина */
+    transition: 0.3s; /* Плавное изменение при наведении */
+}
+
+/* Светлая тема для ссылок меню */
+.light-theme .side-menu a {
+    color: #333; /* Тёмный текст */
+}
+
+/* Эффект при наведении на ссылки */
+.side-menu a:hover {
+    background-color: #333; /* Тёмный фон */
+}
+
+/* Светлая тема для hover */
+.light-theme .side-menu a:hover {
+    background-color: #ddd; /* Светлый фон */
+}
+
+/* Активное состояние бокового меню */
+.side-menu.active {
+    width: 200px; /* Ширина при открытии */
+}
+
+/* Кнопка закрытия меню */
+.close-btn {
+    position: absolute; /* Позиция относительно меню */
+    top: 10px; /* Отступ сверху */
+    right: 15px; /* Отступ справа */
+    font-size: 1.8em; /* Размер символа (28.8px) */
+    cursor: pointer; /* Указатель кликабельности */
+    color: #ffffff; /* Белый цвет */
+}
+
+/* Светлая тема для кнопки закрытия */
+.light-theme .close-btn {
+    color: #333; /* Тёмный цвет */
+}
+
+/* Основной контент */
+main {
+    flex: 1; /* Занимает доступное пространство */
+    padding-top: 60px; /* Отступ для хедера */
+    padding-bottom: 50px; /* Отступ для футера */
+    max-width: 1200px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрирование */
+    padding-left: 10px; /* Отступ слева */
+    padding-right: 10px; /* Отступ справа */
+}
+
+/* Вступительная секция */
+#home {
+    padding: 15px; /* Внутренние отступы */
+    background-color: #1b1d20; /* Тёмный фон */
+    border-radius: 8px; /* Закруглённые углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+    margin-bottom: 15px; /* Отступ снизу */
+    margin-top: 15px; /* Отступ сверху */
+}
+
+/* Светлая тема для #home */
+.light-theme #home {
+    background-color: #ffffff; /* Белый фон */
+}
+
+/* Заголовок секции игр */
+.games-section h2 {
+    font-family: 'Bebas Neue', sans-serif; /* Шрифт для заголовков */
+    font-size: 1.8em; /* Размер текста (28.8px) */
+    margin-bottom: 15px; /* Отступ снизу */
+    text-align: center; /* Центрирование для всех экранов */
+}
+
+/* Контейнер для игр */
+.games-container {
+    display: grid; /* Сеточная модель */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивные колонки */
+    gap: 15px; /* Расстояние между карточками */
+    padding: 15px; /* Внутренние отступы */
+}
+
+/* Карточка игры */
+.game {
+    background: linear-gradient(135deg, #1b1d20, #2b2d30); /* Градиентный фон */
+    border-radius: 8px; /* Закруглённые углы */
+    padding: 15px; /* Внутренние отступы */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Тень */
+    text-align: center; /* Центрированный текст */
+    display: flex; /* Гибкая структура */
+    flex-direction: column; /* Элементы вертикально */
+    justify-content: space-between; /* Равномерное распределение */
+    transition: transform 0.3s ease; /* Анимация при наведении */
+}
+
+/* Светлая тема для карточек */
+.light-theme .game {
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Светлый градиент */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+}
+
+/* Эффект при наведении на карточку */
+.game:hover {
+    transform: translateY(-10px); /* Поднятие вверх */
+}
+
+/* Изображение в карточке */
+.game img {
+    width: 100%; /* Полная ширина */
+    height: auto; /* Автоматическая высота */
+    border-radius: 8px; /* Закруглённые углы */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+/* Заголовок игры */
+.game h3 {
+    margin: 0 0 8px 0; /* Отступы */
+    font-size: 1.3em; /* Размер текста (20.8px) */
+}
+
+/* Жанр игры */
+.game .genre {
+    color: #2bd131; /* Зелёный цвет */
+    font-weight: bold; /* Жирный текст */
+    margin-bottom: 8px; /* Отступ снизу */
+    font-size: 0.9em; /* Размер текста (14.4px) */
+}
+
+/* Рейтинг игры */
+.game .rating {
+    color: #ffd700; /* Золотой цвет звёзд */
+    margin: 8px 0; /* Отступы */
+    font-size: 1em; /* Размер текста (16px) */
+}
+
+/* Описание игры */
+.game p {
+    font-size: 0.9em; /* Размер текста (14.4px) */
+    margin: 0 0 10px 0; /* Отступы */
+    flex-grow: 1; /* Растягивается для заполнения пространства */
+}
+
+/* Ссылка "Скачать" */
+.game a {
+    color: #2bd131; /* Зелёный цвет */
+    text-decoration: none; /* Без подчёркивания */
+    font-weight: bold; /* Жирный текст */
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+    margin-top: auto; /* Прижимаем к низу */
+    font-size: 0.9em; /* Размер текста (14.4px) */
+}
+
+/* Эффект при наведении на ссылку */
+.game a:hover {
+    color: #11fc1a; /* Светло-зелёный цвет */
+}
+
+/* Пагинация */
+.pagination {
+    text-align: center; /* Центрирование */
+    margin: 15px 0; /* Отступы */
+}
+
+/* Ссылки пагинации */
+.pagination a {
+    margin: 0 8px; /* Отступы между ссылками */
+    color: #2bd131; /* Зелёный цвет */
+    text-decoration: none; /* Без подчёркивания */
+    font-size: 1.1em; /* Размер текста (17.6px) */
+}
+
+/* Hover и активное состояние пагинации */
+.pagination a:hover, .pagination a.active {
+    color: #11fc1a; /* Светло-зелёный цвет */
+}
+
+/* Подвал */
+footer {
+    text-align: center; /* Центрирование */
+    padding: 10px; /* Внутренние отступы */
+    background-color: #333; /* Тёмный фон */
+    color: white; /* Белый текст */
+    width: 100%; /* Полная ширина */
+    font-size: 0.8em; /* Размер текста (12.8px) */
+    margin-top: auto; /* Прижимаем к низу */
+}
+
+/* Светлая тема для футера */
+.light-theme footer {
+    background-color: #ddd; /* Светлый фон */
+    color: #333; /* Тёмный текст */
+}
+
+/* Иконка Telegram в футере */
+.telegram-icon {
+    color: #2bd131; /* Зелёный цвет */
+    font-size: 1.3em; /* Размер иконки (20.8px) */
+    margin-top: 5px; /* Отступ сверху */
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении на иконку в футере */
+.telegram-icon:hover {
+    color: #11fc1a; /* Светло-зелёный цвет */
+}
+
+/* Адаптивность для экранов до 600px (мобильные устройства) */
+@media (max-width: 600px) {
+    header {
+        padding: 8px 10px; /* Уменьшаем отступы для компактности */
+    }
+
+    header h1 {
+        font-size: 1.4em; /* Уменьшаем логотип (22.4px) */
+        margin: 0; /* Убираем отступы для точного центрирования */
+        flex-grow: 1; /* Логотип занимает центральное пространство */
+        order: 2; /* Помещаем логотип между бургером и иконками */
+    }
+
+    .burger-menu {
+        display: flex; /* Показываем бургер-меню */
+        margin-left: 5px; /* Сдвигаем чуть левее */
+        order: 1; /* Ставим бургер первым */
+    }
+
+    .burger-menu .bar {
+        width: 25px; /* Увеличиваем ширину полосок для заметности */
+        margin: 4px 0; /* Увеличиваем расстояние между полосками */
+    }
+
+    .header-icons {
+        order: 3; /* Ставим иконки последними */
+        gap: 5px; /* Уменьшаем расстояние между иконками (было 8px) */
+        margin-right: 15px; /* Увеличиваем отступ справа */
+    }
+
+    .header-telegram {
+        font-size: 1.3em; /* Размер иконки (20.8px) */
+    }
+
+    .theme-toggle {
+        font-size: 1.3em; /* Размер иконки (20.8px) */
+        margin-left: 0; /* Убираем отступ слева внутри контейнера */
+    }
+
+    .side-menu.active {
+        width: 180px; /* Уменьшаем ширину меню */
+    }
+
+    .side-menu a {
+        font-size: 1em; /* Уменьшаем текст (16px) */
+        padding: 6px 10px; /* Уменьшаем отступы */
+    }
+
+    .close-btn {
+        font-size: 1.5em; /* Уменьшаем символ (24px) */
+    }
+
+    main {
+        padding-top: 50px; /* Уменьшаем отступ для хедера */
+        padding-left: 5px; /* Уменьшаем отступ слева */
+        padding-right: 5px; /* Уменьшаем отступ справа */
+    }
+
+    #home {
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
+    .games-section h2 {
+        font-size: 1.5em; /* Уменьшаем заголовок (24px) */
+    }
+
+    .game {
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
+    .game h3 {
+        font-size: 1.1em; /* Уменьшаем заголовок (17.6px) */
+    }
+
+    .game p {
+        font-size: 0.8em; /* Уменьшаем описание (12.8px) */
+    }
+
+    .game a {
+        font-size: 0.8em; /* Уменьшаем ссылку (12.8px) */
+    }
+
+    .pagination a {
+        font-size: 1em; /* Уменьшаем текст (16px) */
+        margin: 0 5px; /* Уменьшаем отступы */
+    }
+
+    footer {
+        padding: 8px; /* Уменьшаем отступы */
+        font-size: 0.7em; /* Уменьшаем текст (11.2px) */
+    }
+
+    .telegram-icon {
+        font-size: 1.1em; /* Уменьшаем иконку (17.6px) */
+    }
+}
+
+/* Адаптивность для экранов от 601px до 900px (планшеты) */
+@media (min-width: 601px) and (max-width: 900px) {
+    header h1 {
+        font-size: 1.6em; /* Средний размер логотипа (25.6px) */
+        margin: 0; /* Убираем отступы для центрирования */
+        flex-grow: 1; /* Логотип в центре */
+        order: 2; /* Между бургером и иконками */
+    }
+
+    .burger-menu {
+        display: flex; /* Показываем бургер-меню */
+        margin-left: 10px; /* Сдвигаем чуть левее */
+        order: 1; /* Первым */
+    }
+
+    .header-icons {
+        order: 3; /* Иконки последними */
+        gap: 8px; /* Уменьшенное расстояние между иконками (было 10px) */
+        margin-right: 10px; /* Отступ справа */
+    }
+
+    .header-telegram {
+        font-size: 1.4em; /* Увеличиваем иконку (22.4px) */
+    }
+
+    .theme-toggle {
+        font-size: 1.4em; /* Увеличиваем иконку (22.4px) */
+    }
+
+    .side-menu.active {
+        width: 220px; /* Средняя ширина меню */
+    }
+
+    .games-section h2 {
+        font-size: 1.7em; /* Средний размер заголовка (27.2px) */
+    }
+
+    .game h3 {
+        font-size: 1.2em; /* Средний размер заголовка (19.2px) */
+    }
+
+    .game p {
+        font-size: 0.85em; /* Средний размер текста (13.6px) */
+    }
+}
+
+/* Адаптивность для экранов больше 900px (десктопы) */
+@media (min-width: 901px) {
+    header h1 {
+        font-size: 2em; /* Увеличенный размер логотипа (32px) */
+        margin: 0; /* Убираем отступы для центрирования */
+        flex-grow: 1; /* Логотип в центре */
+        order: 2; /* Между бургером и иконками */
+    }
+
+    .burger-menu {
+        display: flex; /* Показываем бургер-меню на десктопе */
+        margin-left: 15px; /* Сдвигаем чуть левее */
+        order: 1; /* Первым */
+    }
+
+    .header-icons {
+        order: 3; /* Иконки последними */
+        gap: 10px; /* Уменьшенное расстояние между иконками (было 15px) */
+        margin-right: 15px; /* Отступ справа */
+    }
+
+    .header-telegram {
+        font-size: 1.5em; /* Увеличенный размер иконки (24px) */
+    }
+
+    .theme-toggle {
+        font-size: 1.5em; /* Увеличенный размер иконки (24px) */
+    }
+
+    .side-menu.active {
+        width: 250px; /* Ширина меню на десктопе */
+    }
+
+    .games-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 игры в столбце */
+        max-width: 1200px; /* Ограничиваем ширину для 3 колонок */
+    }
+}

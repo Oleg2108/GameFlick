@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Основные мета-теги для кодировки и адаптивности -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO-оптимизация -->
+    <meta name="description" content="GameFlick — обзоры лучших игр для Android. Скачивайте популярные игры, узнавайте об их особенностях и находите ссылки для загрузки.">
+    <meta name="keywords" content="игры, Android, обзоры игр, скачать игры, мобильные игры, GameFlick">
+    <meta name="author" content="Ваше Имя или Название Команды">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph для соцсетей -->
+    <meta property="og:title" content="GameFlick — обзоры игр для Android">
+    <meta property="og:description" content="На GameFlick вы найдете обзоры лучших игр для Android. Скачивайте популярные игры и узнавайте об их особенностях.">
+    <meta property="og:image" content="https://example.com/image.jpg">
+    <meta property="og:url" content="https://gameflick.ru">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="GameFlick — обзоры игр для Android">
+    <meta name="twitter:description" content="На GameFlick вы найдете обзоры лучших игр для Android. Скачивайте популярные игры и узнавайте об их особенностях.">
+    <meta name="twitter:image" content="https://example.com/image.jpg">
+    
+    <!-- SVG-фаavicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='none' stroke='%23228B22' stroke-width='4'/><circle cx='50' cy='50' r='45' fill='%23000000'/><text x='30' y='57' font-size='18' font-family='Arial, sans-serif' fill='%23228B22' font-weight='bold'>G</text><text x='65' y='57' font-size='18' font-family='Arial, sans-serif' fill='%23228B22' font-weight='bold'>F</text><text x='35' y='57' font-size='18' font-family='Arial, sans-serif' fill='%23FFFFFF' font-weight='bold'>ame</text><text x='70' y='57' font-size='18' font-family='Arial, sans-serif' fill='%23FFFFFF' font-weight='bold'>lick</text></svg>" type="image/svg+xml">
+    
+    <!-- Заголовок страницы -->
+    <title>GameFlick — обзоры игр для Android</title>
+    
+    <!-- Подключение стилей и шрифтов -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="burger-menu" onclick="toggleMenu()" role="button" aria-label="Открыть меню">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <h1><a href="index.html"><span>G</span>ame<span>F</span>lick</a></h1>
+        <div class="header-icons">
+            <a href="https://t.me/Hdvideo_online" target="_blank" class="header-telegram"><i class="fab fa-telegram"></i></a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Сменить тему"><i class="fas fa-moon"></i></button>
+        </div>
+    </header>
+
+    <!-- Навигационное боковое меню -->
+    <nav class="side-menu" id="sideMenu">
+        <span class="close-btn" onclick="toggleMenu()" role="button" aria-label="Закрыть меню">×</span>
+        <a href="#" onclick="filterGames('Шутер')">Шутеры</a>
+        <a href="#" onclick="filterGames('Гонки')">Гонки</a>
+        <a href="#" onclick="filterGames('RPG')">RPG</a>
+        <a href="#" onclick="filterGames('Экшн')">Экшн</a>
+        <a href="#" onclick="filterGames('Приключения')">Приключения</a>
+        <a href="#" onclick="filterGames('Симуляторы')">Симуляторы</a>
+        <a href="#" onclick="filterGames('Стратегии')">Стратегии</a>
+    </nav>
+
+    <!-- Основной контент -->
+    <main>
+        <section id="home">
+            <h2>Добро пожаловать на GameFlick!</h2>
+            <p>На GameFlick мы представляем обзоры лучших игр для Android. Вы найдете здесь информацию о самых популярных играх, их особенностях и ссылки на скачивание.</p>
+        </section>
+
+        <!-- Секция с новыми играми -->
+        <section class="games-section">
+            <h2>Новые игры</h2>
+            <div class="games-container">
+                <article class="game">
+                    <img src="https://zaka-zaka.com/images/game/p732/plancon-space-conflict.jpg" alt="Скриншот игры Plancon: Space Conflict" loading="lazy">
+                    <h3>Plancon: Space Conflict</h3>
+                    <p class="genre"><i class="fas fa-crosshairs"></i> Жанр: Экшн</p>
+                    <p> Plancon: Space Conflict - Сюжет игры развивается в далеком 2591 году, когда на человечество
+                         напала внеземная цивилизация. За сем долгих лет войны человечество потеряло всё, что имело,
+                          кроме Венеры и Земли, которые были самыми развитыми и защищенными у людей. За всё историю
+                           войны пришельцы превосходили людей технически, но благодаря лучшим умам человечества этот
+                            разрыв в технологии сокращался</p>
+                    <div class="rating">★★★★☆ (4.5/5)</div>
+                    <a href="https://pdalife.to/plancon-space-conflict-android-a14667.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://i.ytimg.com/vi/wSOh3Aqcfyc/maxresdefault.jpg" alt="Скриншот игры Extreme Car Driving Simulator" loading="lazy">
+                    <h3>Extreme Car Driving Simulator</h3>
+                    <p class="genre"><i class="fas fa-car"></i> Жанр: Гонки</p>
+                    <p>Extreme Car Driving Simulator – симулятор по управлению гоночным автомобилем. Эта игра имеет отличную физику разрушений автомобиля и управления. В этой игре у вас выпадет отличный шанс погонять на гоночной машине по городским улицам, при этом не бояться преследования полицейских машин и столкновения с другими машинами.</p>
+                    <div class="rating">★★★★★ (5/5)</div>
+                    <a href="https://pdalife.to/extreme-car-driving-simulator-android-a14662.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://img.gameloop.com/img/45a05f4ca998e930ab7dc1b220cace3c.jpg" alt="Скриншот игры Cover Fire: Offline Shooting" loading="lazy">
+                    <h3>Cover Fire: Offline Shooting</h3>
+                    <p class="genre"><i class="fas fa-crosshairs"></i> Жанр: Приключения</p>
+                    <p> Cover Fire: shooting games (Cover Fire - стреляй чтобы убить) - В этой игре вам придется возглавить не большой отряд людей и повести их на войну против корпорации Tetracorp. Tetracorp самовольно захватывает различные участки земли по всей планеты ради добычи полезных ресурсов и дешевой рабочей силы. Но вы должны стать на защиту бедных людей! Улучшайте оружие своих солдат</p>
+                    <div class="rating">★★★★☆ (4.5/5)</div>
+                    <a href="https://pdalife.to/cover-fire-android-a25048.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://images.gog-statics.com/1cc1ba26ffd7b167b4db13aebb7ae4573e503af11ef9ca698803b2841b2c13b6.jpg" alt="Скриншот игры Bright Memory: Infinite" loading="lazy">
+                    <h3>Bright Memory: Infinite</h3>
+                    <p class="genre"><i class="fas fa-bolt"></i> Жанр: Экшн</p>
+                    <p>Bright Memory: Infinite - премиальный экшен от первого лица, который предлагает игрокам участвовать в динамичных перестрелках, исследуя таинственные явления, происходящие по всему миру. Эта игра, портированная с версии для ПК, поддерживает контроллеры XBOX, настройку виртуальных кнопок, прицеливание с помощью гироскопа.</p>
+                    <div class="rating">★★★★☆ (4.7/5)</div>
+                    <a href="https://pdalife.to/bright-memory-infinite-android-a50466.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://i.playground.ru/p/tAfieqNTSTbBHp0uybT8pQ.jpeg" alt="Скриншот игры Lineage 2 M" loading="lazy">
+                    <h3>Lineage 2 M</h3>
+                    <p class="genre"><i class="fas fa-users"></i> Жанр: RPG</p>
+                    <p>Я думаю практически любой геймер слышал об этой игре. Теперь вы сможете прокачивать своего героя и ходить на рейды и с экранов вашего мобильного телефона. Lineage 2 M – дарит вам такую возможность. Да-да как и раньше, прокачиваем героя, мочим мобов, собираем лут, собираем новые доспехи и оружие, крафтим всё что необходимо и становимся крутым воином.</p>
+                    <div class="rating">★★★★☆ (4.6/5)</div>
+                    <a href="https://pdalife.to/lineage-2-m-android-a38968.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://overclockers.ru/st/legacy/blog/393030/237323_O.jpg" alt="Скриншот игры Rocket League Sideswipe" loading="lazy">
+                    <h3>Rocket League Sideswipe</h3>
+                    <p class="genre"><i class="fas fa-car"></i> Жанр: Гонки</p>
+                    <p>Sideswipe - гоночная аркада с элементами футбола на Андроид. Играйте в соревновательные рейтинговые или частные матчи 1 на 1 или 2 на 2. Сыграйте в классический футбол или попробуйте режим Hoops. Оттачивайте свои навыки в режиме обучения или свободной игры. Гараж Rocket League Sideswipe позволит вам изменять внешний вид своих автомобилей.</p>
+                    <div class="rating">★★★★☆ (4.4/5)</div>
+                    <a href="https://pdalife.to/rocket-league-sideswipe-android-a42541.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://cdn-www.bluestacks.com/bs-images/featured_com.proximabeta.mf.liteuamo.jpg" alt="Скриншот игры Arena Breakout Lite" loading="lazy">
+                    <h3>Arena Breakout Lite</h3>
+                    <p class="genre"><i class="fas fa-bolt"></i> Жанр: Экшн</p>
+                    <p>Arena Breakout - это новый тактический FPS, который предлагает захватывающий геймплей с элементами мародерства. Исследуйте новую карту на территории города Гуояпос Бэй, бывшей крупной военно-морской базой, и подготовьтесь к рискованным миссиям и спасательным операциям в разрушенном войной районе Камона.</p>
+                    <div class="rating">★★★★☆ (4.5/5)</div>
+                    <a href="https://pdalife.to/arena-breakout-android-a48019.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://img.youtube.com/vi/6GE9gx5NqzU/maxresdefault.jpg" alt="Скриншот игры Door Kickers 2: Task Force North" loading="lazy">
+                    <h3>Door Kickers 2: Task Force North</h3>
+                    <p class="genre"><i class="fas fa-crosshairs"></i> Жанр: Шутер</p>
+                    <p>Door Kickers 2: Task Force North - вторая часть популярного тактического шутера на Андроид. На этот раз события переносятся на Средний Восток. В вашем распоряжении по-прежнему окажется отряд специального назначения, задача которого бороться с террористами. Используйте дроны, приборы ночного видения и массу других высокотехнологичных устройств для ликвидации врагов.</p>
+                    <div class="rating">★★★★☆ (4.8/5)</div>
+                    <a href="https://pdalife.to/door-kickers-2-task-force-north-android-a42121.html" target="_blank">Скачать</a>
+                </article>
+                <article class="game">
+                    <img src="https://cdn.focus-home.com/fhi-fastforward-admin/resources/games/mudrunner/images/06072020_90fa330ced984bf1a5ec7b3173f9d783.jpeg" alt="Скриншот игры MudRunner Mobile" loading="lazy">
+                    <h3>MudRunner Mobile</h3>
+                    <p class="genre"><i class="fas fa-car"></i> Жанр: Гонки</p>
+                    <p>MudRunner — это непревзойденная гонка по бездорожью, в которой вам предстоит сесть за руль потрясающих внедорожников и бросить вызов суровым сибирским ландшафтам, имея под рукой лишь карту и компас. Выполняйте задания и доставляйте грузы, сражаясь с безжалостными климатическими условиями на диких ландшафтах с динамической сменой дня и ночи. Благодаря продвинутой физической модели грязь, бурные реки и иные препятствия будут живо и реалистично реагировать на движения и вес вашей машины.</p>
+                    <div class="rating">★★★★☆ (4.6/5)</div>
+                    <a href="https://pdalife.to/mudrunner-android-a40726.html" target="_blank">Скачать</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Пагинация -->
+        <div class="pagination">
+            <a href="index.html" class="active">1</a>
+            <a href="page2.html">2</a>
+            <a href="page3.html">3</a>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <p>© 2025 GameFlick. Все права защищены.</p>
+        <a href="https://t.me/Hdvideo_online" target="_blank" class="telegram-icon">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </footer>
+
+    <!-- JavaScript для функциональности -->
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            sideMenu.classList.toggle('active');
+        }
+
+        function filterGames(genre) {
+            const games = document.querySelectorAll('.game');
+            games.forEach(game => {
+                const gameGenre = game.querySelector('.genre').textContent;
+                game.style.display = gameGenre.includes(genre) ? 'block' : 'none';
+            });
+            toggleMenu();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const icon = document.querySelector('.theme-toggle i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+            localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-theme');
+            document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+        }
+    </script>
+</body>
+</html>
