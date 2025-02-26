@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E8VE9TQKGN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-E8VE9TQKGN');
-</script>
+  <!-- Google tag (gtag.js) для аналитики -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8VE9TQKGN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E8VE9TQKGN');
+  </script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Шапка сайта -->
     <header>
         <div class="burger-menu" onclick="toggleMenu()" role="button" aria-label="Открыть меню">
             <div class="bar"></div>
@@ -33,6 +34,7 @@
         </div>
     </header>
 
+    <!-- Навигационное боковое меню -->
     <nav class="side-menu" id="sideMenu">
         <span class="close-btn" onclick="toggleMenu()" role="button" aria-label="Закрыть меню">×</span>
         <a href="#" onclick="filterGames('Шутер')">Шутеры</a>
@@ -45,6 +47,7 @@
         <a href="https://t.me/Hdvideo_online" target="_blank" class="telegram-icon"><i class="fab fa-telegram"></i> Telegram</a>
     </nav>
 
+    <!-- Основной контент -->
     <main>
         <section id="home">
             <h2>GameFlick</h2>
@@ -54,77 +57,86 @@
         <section class="games-section">
             <h2>Популярные игры</h2>
             <div class="games-container">
+                <!-- Игра 10 -->
                 <article class="game">
                     <img src="https://i.ytimg.com/vi/3_HBajyHiAE/maxresdefault.jpg" alt="Скриншот игры Special Forces Group 3: SFG3" loading="lazy">
-                    <h3>Special Forces Group 3: SFG3</h3>
+                    <h3>10. Special Forces Group 3: SFG3</h3>
                     <p class="genre"><i class="fas fa-bolt"></i> Жанр: Экшн</p>
-                    <p>Special forces group 3 - шутер, который многие опытные юзеры считают полноценной альтернативой Counter Strike, ибо многие локации напоминают CS:GO. В начале матча вам предстоит выбрать сторону: быть террористом, либо спецназом. После это закупаете оружие и вперед. Но команда разработчиков пошла дальше CS, добавлено 9 режимов.</p>
+                    <p>Special Forces Group 3 - шутер, который многие опытные юзеры считают полноценной альтернативой Counter Strike, ибо многие локации напоминают CS:GO. В начале матча вам предстоит выбрать сторону: быть террористом, либо спецназом. После этого закупаете оружие и вперед. Но команда разработчиков пошла дальше CS, добавлено 9 режимов.</p>
                     <div class="rating">★★★★☆ (4.2/5)</div>
-                    <a href="https://t.me/GameFlick_bot?start=sfg3" target="_blank">Скачать</a>
+                    <a href="https://t.me/GameFlick_bot?start=sfg3" target="_blank" data-game="Special Forces Group 3: SFG3">Скачать</a>
                 </article>
+                <!-- Игра 11 -->
                 <article class="game">
                     <img src="https://avatars.dzeninfra.ru/get-ynews/271828/6aeec4f7b6302125982fe66803ee482f/800x400" alt="Скриншот игры DARK AND DARKER MOBILE" loading="lazy">
-                    <h3>DARK AND DARKER MOBILE</h3>
+                    <h3>11. DARK AND DARKER MOBILE</h3>
                     <p class="genre"><i class="fas fa-users"></i> Жанр: RPG</p>
                     <p>Dark & Darker Mobile - RPG игра, которая привносит в ваш мобильный экран захватывающие бои, опасные подземелья и невероятные возможности для развития вашего персонажа. Этот мир привносит вам возможность окунуться в уникальный опыт, где слияние PvE и PvP элементов приносит вам как борьбу с монстрами, так и битвы с другими игроками.</p>
                     <div class="rating">★★★★☆ (4.5/5)</div>
-                    <a href="https://t.me/GameFlick_bot?start=darkanddarker" target="_blank">Скачать</a>
+                    <a href="https://t.me/GameFlick_bot?start=darkanddarker" target="_blank" data-game="DARK AND DARKER MOBILE">Скачать</a>
                 </article>
+                <!-- Игра 12 -->
                 <article class="game">
                     <img src="https://pdacdn.com/app/67a64a167475a/img1.jpg" alt="Скриншот игры Cozy Town: Build Explore Game" loading="lazy">
-                    <h3>Cozy Town: Build Explore Game</h3>
+                    <h3>12. Cozy Town: Build Explore Game</h3>
                     <p class="genre"><i class="fas fa-users"></i> Жанр: RPG</p>
                     <p>Cozy Town: Build Explore Game - это увлекательная градостроительная игра, объединяющая стратегию и креативность. Создавайте уютные города на живописных островах, развивайте инфраструктуру, обеспечивайте жителей комфортной жизнью и управляйте ресурсами. Каждый остров предлагает уникальные испытания, требующие продуманного подхода к строительству.</p>
                     <div class="rating">★★★★☆ (4.3/5)</div>
-                    <a href="https://t.me/GameFlick_bot?start=cozytown" target="_blank">Скачать</a>
+                    <a href="https://t.me/GameFlick_bot?start=cozytown" target="_blank" data-game="Cozy Town: Build Explore Game">Скачать</a>
                 </article>
+                <!-- Игра 13 -->
                 <article class="game">
                     <img src="https://pic.rutubelist.ru/video/52/6c/526cec726c39f2f9950a3f512d5317d6.jpg" alt="Скриншот игры Demolition Derby 2" loading="lazy">
-                    <h3>Demolition Derby 2</h3>
+                    <h3>13. Demolition Derby 2</h3>
                     <p class="genre"><i class="fas fa-car"></i> Жанр: Гонки</p>
                     <p>Demolition Derby 2 – игра на Андроид, где вы будете прокладывать себе дорогу к успеху, катаясь по различным трассам игры. В этой игре вы возьмете под свой контроль мощный автомобиль и проведете его по всем трассам, обгоняя соперников. Вашей задачей будет гонять на огромной скорости и постараться доехать до финиша, не разбив свой автомобиль по пути.</p>
                     <div class="rating">★★★★☆ (4.4/5)</div>
-                    <a href="https://t.me/GameFlick_bot?start=demolitionderby2" target="_blank">Скачать</a>
+                    <a href="https://t.me/GameFlick_bot?start=demolitionderby2" target="_blank" data-game="Demolition Derby 2">Скачать</a>
                 </article>
+                <!-- Игра 14 -->
                 <article class="game">
                     <img src="https://i.pinimg.com/736x/94/1b/f2/941bf29cbf46fe2ae4dc6d82a872f7f1.jpg" alt="Скриншот игры SimCity BuildIt" loading="lazy">
-                    <h3>SimCity BuildIt</h3>
+                    <h3>14. SimCity BuildIt</h3>
                     <p class="genre"><i class="fas fa-city"></i> Жанр: Симуляторы</p>
-                    <p>SimCity BuildIt – симулятор по созданию своего собственного города мегаполиса. В этой игре на Андроид вы станете главой управляющим всем городом. Занимайтесь строительством, исполняйте все нужды горожан и добавляйте городские службы, которые помогут тушить пожары, справляться с бесконечными пробками на дорогах и смотреть за экологической остановкой в городе. Это самый реалистичный симулятор с шумными улицами, горожанами которые сами вам будут говорить что им нужно для того чтобы быть счастливыми.</p>
+                    <p>SimCity BuildIt – симулятор по созданию своего собственного города-мегаполиса. В этой игре на Андроид вы станете главой, управляющим всем городом. Занимайтесь строительством, исполняйте все нужды горожан и добавляйте городские службы, которые помогут тушить пожары, справляться с бесконечными пробками на дорогах и следить за экологической обстановкой в городе. Это самый реалистичный симулятор с шумными улицами, горожанами, которые сами вам будут говорить, что им нужно для того чтобы быть счастливыми.</p>
                     <div class="rating">★★★★☆ (4.6/5)</div>
-                    <a href="https://t.me/GameFlick_bot?start=simcitybuildit" target="_blank">Скачать</a>
+                    <a href="https://t.me/GameFlick_bot?start=simcitybuildit" target="_blank" data-game="SimCity BuildIt">Скачать</a>
                 </article>
+                <!-- Игра 15 -->
                 <article class="game">
                     <img src="https://image.winudf.com/v2/image1/Y29tLkRvdmVHYW1lcy5pbXBvc3NpYmxlLmV4dHJlbWUuYmlrZS5zdHVudF9zY3JlZW5fMF8xNTUwNTk1NzYyXzA1OQ/screen-0.jpg?fakeurl=1&type=.jpg" alt="Скриншот игры Stunt Bike Extreme" loading="lazy">
-                    <h3>Stunt Bike Extreme</h3>
+                    <h3>15. Stunt Bike Extreme</h3>
                     <p class="genre"><i class="fas fa-car"></i> Жанр: Гонки</p>
                     <p>Stunt Bike Xtreme - игра, сочетающая адреналин мотокросса и зрелищность мотофристайла. Игра предлагает головокружительные трассы, полные невероятных прыжков, виражей и трюков. Начните свое приключение с мощного мотоцикла для бездорожья и проложите свой путь сквозь препятствия, поднимаясь к вершинам мастерства. С каждым новым уровнем вас ждут новые испытания и возможности для улучшения вашего байка. Прокачайте свой мотоцикл, делая его быстрее, маневреннее и устойчивее. От классического ретро-мотоцикла до ультрасовременного спортивного байка - у вас есть широкий выбор машин, которые помогут вам покорить вершины мотоспорта.</p>
                     <div class="rating">★★★★☆ (4.5/5)</div>
-                    <a href="https://t.me/GameFlick_bot?start=stuntbikeextreme" target="_blank">Скачать</a>
+                    <a href="https://t.me/GameFlick_bot?start=stuntbikeextreme" target="_blank" data-game="Stunt Bike Extreme">Скачать</a>
                 </article>
+                <!-- Игра 16 -->
                 <article class="game">
                     <img src="https://avatars.mds.yandex.net/i?id=24f555408b92bf7c3905f90bd910712e41d07ba9-9845623-images-thumbs&n=13" alt="Скриншот игры За Закатом Неминуем Рассвет" loading="lazy">
-                    <h3>За Закатом Неминуем Рассвет</h3>
+                    <h3>16. За Закатом Неминуем Рассвет</h3>
                     <p class="genre"><i class="fas fa-compass"></i> Жанр: Приключения</p>
                     <p>За Закатом Неминуем Рассвет - Главный герой, загадочный путешественник Виктор, скрывается от своего прошлого в отдалённом посёлке Рассвет, расположенном в таинственной Чазытчирской долине, среди неприступных хребтов Саянских гор. Однако Виктор даже не предполагал, что его укрытие обернётся новыми испытаниями. Рассвет — это не только захватывающие виды заснеженных гор и таинственные уголки, но и место, наполненное тёмными секретами, которые вам предстоит раскрыть. В основе игры лежит классическая механика визуальных новелл, дополненная элементами ролевых игр, создающими уникальный опыт.</p>
                     <div class="rating">★★★★☆ (4.4/5)</div>
-                    <a href="https://t.me/GameFlick_bot?start=zakz" target="_blank">Скачать</a>
+                    <a href="https://t.me/GameFlick_bot?start=zakz" target="_blank" data-game="За Закатом Неминуем Рассвет">Скачать</a>
                 </article>
+                <!-- Игра 17 -->
                 <article class="game">
                     <img src="https://files.vgtimes.ru/posts/2023-11/spustya-32-goda-blizzard-pokinul-ee-art-direktor-rabotavshiy-nad-starcraft-diablo-i-warcraft-3-102219.webp?1699704974" alt="Скриншот игры Warsmash" loading="lazy">
-                    <h3>Warsmash</h3>
+                    <h3>17. Warsmash</h3>
                     <p class="genre"><i class="fas fa-chess"></i> Жанр: Стратегии</p>
                     <p>Warsmash – это порт Warcraft III, представляющий собой эмулятор, разработанный на основе игрового движка LibGDX. В данный момент поддерживаются как локальные, так и сетевые сражения, а режим кампании активно разрабатывается! Warcraft III — культовая стратегия в реальном времени от Blizzard Entertainment, сочетающая глубокий сюжет, эпические сражения и элементы RPG. Игра предлагает четыре уникальные расы — людей, орков, нежить и ночных эльфов — каждая со своими особенностями и героями.</p>
                     <div class="rating">★★★★☆ (4.7/5)</div>
-                    <a href="https://t.me/GameFlick_bot?start=warsmash" target="_blank">Скачать</a>
+                    <a href="https://t.me/GameFlick_bot?start=warsmash" target="_blank" data-game="Warsmash">Скачать</a>
                 </article>
+                <!-- Игра 18 -->
                 <article class="game">
                     <img src="https://i.ytimg.com/vi/If2Pe5GNGVE/maxresdefault.jpg" alt="Скриншот игры Stormhill Mystery (Full)" loading="lazy">
-                    <h3>Stormhill Mystery (Full)</h3>
+                    <h3>18. Stormhill Mystery (Full)</h3>
                     <p class="genre"><i class="fas fa-compass"></i> Жанр: Приключения</p>
                     <p>Stormhill Mystery (Full) - увлекательный point-and-click квест с элементами мистики, в котором вам предстоит раскрыть семейную тайну с неожиданным паранормальным поворотом. Вы играете за главного героя, которому в детстве отец рассказывал сказку о купце, чья счастливая жизнь с женой была разрушена из-за завистливой служанки, призвавшей тёмные силы и наложившей смертельное проклятие. Годы спустя вы узнаете, что эта история — ваша семейная тайна, и теперь вам предстоит завершить начатое отцом и освободить дух матери!</p>
                     <div class="rating">★★★★☆ (4.5/5)</div>
-                    <a href="https://t.me/GameFlick_bot?start=stormhillmystery" target="_blank">Скачать</a>
+                    <a href="https://t.me/GameFlick_bot?start=stormhillmystery" target="_blank" data-game="Stormhill Mystery (Full)">Скачать</a>
                 </article>
             </div>
         </section>
@@ -136,6 +148,7 @@
         </div>
     </main>
 
+    <!-- Подвал сайта -->
     <footer>
         <p>© 2025 GameFlick. Все права защищены.</p>
         <a href="https://t.me/Hdvideo_online" target="_blank" class="telegram-icon">
@@ -143,12 +156,15 @@
         </a>
     </footer>
 
+    <!-- JavaScript для функциональности -->
     <script>
+        // Открытие/закрытие бокового меню
         function toggleMenu() {
             const sideMenu = document.getElementById('sideMenu');
             sideMenu.classList.toggle('active');
         }
 
+        // Фильтрация игр по жанру
         function filterGames(genre) {
             const games = document.querySelectorAll('.game');
             games.forEach(game => {
@@ -158,6 +174,7 @@
             toggleMenu();
         }
 
+        // Переключение темы (светлая/тёмная)
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
             const icon = document.querySelector('.theme-toggle i');
@@ -166,10 +183,27 @@
             localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
         }
 
+        // Применение сохранённой темы при загрузке страницы
         if (localStorage.getItem('theme') === 'light') {
             document.body.classList.add('light-theme');
             document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
         }
+
+        // Отслеживание кликов по кнопкам "Скачать" для Google Analytics
+        document.querySelectorAll('.game a').forEach(link => {
+            link.addEventListener('click', function() {
+                const gameName = this.getAttribute('data-game'); // Получаем название игры из атрибута data-game
+                if (typeof gtag === 'function') { // Проверяем, что gtag загружен
+                    gtag('event', 'Click', {
+                        'event_category': 'Game Download', // Категория события
+                        'event_label': gameName, // Метка - название игры
+                        'value': 1 // Значение (для подсчёта кликов)
+                    });
+                } else {
+                    console.warn('Google Analytics не загружен'); // Предупреждение, если gtag отсутствует
+                }
+            });
+        });
     </script>
 </body>
 </html>
