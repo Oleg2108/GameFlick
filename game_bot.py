@@ -3,14 +3,36 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ConversationHandler, MessageHandler, filters
 from bs4 import BeautifulSoup
 import subprocess
+import random
 
 # Токен вашего бота
 TOKEN = "5893751467:AAF74HJ9JET_I14pkkQSr8toE6zkVTRiDhk"
 
 # Состояния для добавления
 ADD_PAGE, ADD_TITLE, ADD_DESC, ADD_LINK, ADD_IMAGE, ADD_GENRE, ADD_CONFIRM = range(7)
-# Состояния для замены (начинаются с другого числа, чтобы избежать пересечения)
+# Состояния для замены
 REPLACE_PAGE, REPLACE_OLD, REPLACE_TITLE, REPLACE_DESC, REPLACE_LINK, REPLACE_IMAGE, REPLACE_GENRE, REPLACE_CONFIRM = range(10, 18)
+
+# Словарь эмодзи для жанров
+GENRE_EMOJIS = {
+    "Файтинг": "👊",
+    "Гонки": "🏎️",
+    "Экшн": "🔫",
+    "Приключение": "🗺️",
+    "Стратегия": "♟️",
+    "РПГ": "🧙",
+    "Аркада": "🎮",
+    "Пазл": "🧩",
+    "Симулятор": "🎲",
+    "Спорт": "⚽",
+    "Неизвестно": "❓"
+}
+
+# Функция для генерации случайного рейтинга
+def generate_rating():
+    rating = random.uniform(3.5, 5.0)
+    stars = "★" * int(rating) + "☆" * (5 - int(rating))  # Например, 4.2 → ★★★★☆
+    return f"{stars} ({rating:.1f}/5)"
 
 async def start(update, context):
     keyboard = [
@@ -40,7 +62,7 @@ async def button(update, context):
 
 # Добавление игры
 async def add_page(update, context):
-    context.user_data.clear()  # Очищаем данные перед новым добавлением
+    context.user_data.clear()
     context.user_data["page"] = update.message.text.lower()
     print(f"Добавление: страница = {context.user_data['page']}")
     await update.message.reply_text("Введите название игры:")
@@ -84,7 +106,8 @@ async def add_genre(update, context):
         context.user_data["genre"] = "Неизвестно"
     else:
         context.user_data["genre"] = genre
-    print(f"Добавление: жанр = {context.user_data['genre']}")
+    context.user_data["emoji"] = GENRE_EMOJIS.get(context.user_data["genre"], "❓")
+    print(f"Добавление: жанр = {context.user_data['genre']}, эмодзи = {context.user_data['emoji']}")
     
     game = context.user_data
     await update.message.reply_text(
@@ -94,7 +117,7 @@ async def add_genre(update, context):
         f"Описание: {game['description']}\n"
         f"Ссылка: {game['link']}\n"
         f"Изображение: {game['image']}\n"
-        f"Жанр: {game['genre']}\n"
+        f"Жанр: {game['genre']} {game['emoji']}\n"
         f"Всё верно? (да/нет)"
     )
     return ADD_CONFIRM
@@ -102,7 +125,8 @@ async def add_genre(update, context):
 async def add_confirm(update, context):
     if update.message.text.lower() == "да":
         game = context.user_data
-        print(f"Добавление: подтверждено для {game['title']}")
+        game["rating"] = generate_rating()
+        print(f"Добавление: подтверждено для {game['title']}, рейтинг = {game['rating']}")
         add_game_to_page(game["page"], game)
         update_site()
         await update.message.reply_text(f"Игра '{game['title']}' добавлена на {game['page']}.html!")
@@ -113,7 +137,7 @@ async def add_confirm(update, context):
 
 # Замена игры
 async def replace_page(update, context):
-    context.user_data.clear()  # Очищаем данные перед новой заменой
+    context.user_data.clear()
     context.user_data["page"] = update.message.text.lower()
     print(f"Замена: страница = {context.user_data['page']}")
     await update.message.reply_text("Введите название или номер игры, которую хотите заменить:")
@@ -163,7 +187,8 @@ async def replace_genre(update, context):
         context.user_data["genre"] = "Неизвестно"
     else:
         context.user_data["genre"] = genre
-    print(f"Замена: новый жанр = {context.user_data['genre']}")
+    context.user_data["emoji"] = GENRE_EMOJIS.get(context.user_data["genre"], "❓")
+    print(f"Замена: новый жанр = {context.user_data['genre']}, эмодзи = {context.user_data['emoji']}")
     
     game = context.user_data
     await update.message.reply_text(
@@ -174,7 +199,7 @@ async def replace_genre(update, context):
         f"Новое описание: {game['description']}\n"
         f"Новая ссылка: {game['link']}\n"
         f"Новое изображение: {game['image']}\n"
-        f"Новый жанр: {game['genre']}\n"
+        f"Новый жанр: {game['genre']} {game['emoji']}\n"
         f"Всё верно? (да/нет)"
     )
     return REPLACE_CONFIRM
@@ -182,7 +207,8 @@ async def replace_genre(update, context):
 async def replace_confirm(update, context):
     if update.message.text.lower() == "да":
         game = context.user_data
-        print(f"Замена: подтверждено для {game['title']}")
+        game["rating"] = generate_rating()
+        print(f"Замена: подтверждено для {game['title']}, рейтинг = {game['rating']}")
         replace_game_on_page(game["page"], game["old_game"], game)
         update_site()
         await update.message.reply_text(f"Игра '{game['old_game']}' заменена на '{game['title']}' на {game['page']}.html!")
@@ -213,11 +239,11 @@ def add_game_to_page(page, game):
     h3 = soup.new_tag("h3")
     h3.string = f"{new_id}. {game['title']}"
     p_genre = soup.new_tag("p", **{"class": "genre"})
-    p_genre.string = f"Жанр: {game['genre']}"
+    p_genre.string = f"Жанр: {game['genre']} {game['emoji']}"
     p_desc = soup.new_tag("p")
     p_desc.string = game["description"]
     div_rating = soup.new_tag("div", **{"class": "rating"})
-    div_rating.string = "★★★★☆ (4.0/5)"
+    div_rating.string = game["rating"]
     a = soup.new_tag("a", href=game["link"], target="_blank", **{"data-game": game["title"]})
     a.string = "Скачать"
     
@@ -254,11 +280,11 @@ def replace_game_on_page(page, old_game, new_game):
             h3_tag = soup.new_tag("h3")
             h3_tag.string = h3
             p_genre = soup.new_tag("p", **{"class": "genre"})
-            p_genre.string = f"Жанр: {new_game['genre']}"
+            p_genre.string = f"Жанр: {new_game['genre']} {new_game['emoji']}"
             p_desc = soup.new_tag("p")
             p_desc.string = new_game["description"]
             div_rating = soup.new_tag("div", **{"class": "rating"})
-            div_rating.string = "★★★★☆ (4.0/5)"
+            div_rating.string = new_game["rating"]
             a = soup.new_tag("a", href=new_game["link"], target="_blank", **{"data-game": new_game["title"]})
             a.string = "Скачать"
             
@@ -288,7 +314,6 @@ def main():
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start), CallbackQueryHandler(button)],
         states={
-            # Добавление
             ADD_PAGE: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_page)],
             ADD_TITLE: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_title)],
             ADD_DESC: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_desc)],
@@ -296,7 +321,6 @@ def main():
             ADD_IMAGE: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_image)],
             ADD_GENRE: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_genre)],
             ADD_CONFIRM: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_confirm)],
-            # Замена
             REPLACE_PAGE: [MessageHandler(filters.TEXT & ~filters.COMMAND, replace_page)],
             REPLACE_OLD: [MessageHandler(filters.TEXT & ~filters.COMMAND, replace_old)],
             REPLACE_TITLE: [MessageHandler(filters.TEXT & ~filters.COMMAND, replace_title)],
