@@ -51,7 +51,7 @@ async def add_desc(update, context):
         await update.message.reply_text("Описание слишком длинное (более 400 символов). Введите короче:")
         return ADD_DESC
     context.user_data["description"] = desc
-    await update.message.reply_text("Введите ссылку на скачивание:")
+    await update.message.reply_text("Введите ссылку на пост в @game_flick (например, https://t.me/game_flick/123):")
     return ADD_LINK
 
 async def add_link(update, context):
@@ -81,7 +81,7 @@ async def add_genre(update, context):
         f"Страница: {game['page']}\n"
         f"Название: {game['title']}\n"
         f"Описание: {game['description']}\n"
-        f"Ссылка: {game['link']}\n"
+        f"Ссылка: {game['link']} (ведёт на пост)\n"
         f"Изображение: {game['image']}\n"
         f"Жанр: {game['genre']}\n"
         f"Всё верно? (да/нет)"
@@ -120,7 +120,7 @@ async def rep_desc(update, context):
         await update.message.reply_text("Описание слишком длинное (более 400 символов). Введите короче:")
         return REP_DESC
     context.user_data["description"] = desc
-    await update.message.reply_text("Введите новую ссылку на скачивание:")
+    await update.message.reply_text("Введите новую ссылку на пост в @game_flick (например, https://t.me/game_flick/123):")
     return REP_LINK
 
 async def rep_link(update, context):
@@ -151,7 +151,7 @@ async def rep_genre(update, context):
         f"Заменяемая игра: {game['old_game']}\n"
         f"Новое название: {game['title']}\n"
         f"Новое описание: {game['description']}\n"
-        f"Новая ссылка: {game['link']}\n"
+        f"Новая ссылка: {game['link']} (ведёт на пост)\n"
         f"Новое изображение: {game['image']}\n"
         f"Новый жанр: {game['genre']}\n"
         f"Всё верно? (да/нет)"
@@ -250,7 +250,6 @@ def main():
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start), CallbackQueryHandler(button_handler)],
         states={
-            # Добавление
             ADD_PAGE: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_page)],
             ADD_TITLE: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_title)],
             ADD_DESC: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_desc)],
@@ -258,7 +257,6 @@ def main():
             ADD_IMAGE: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_image)],
             ADD_GENRE: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_genre)],
             ADD_CONFIRM: [MessageHandler(filters.TEXT & ~filters.COMMAND, add_confirm)],
-            # Замена
             REP_PAGE: [MessageHandler(filters.TEXT & ~filters.COMMAND, rep_page)],
             REP_OLD: [MessageHandler(filters.TEXT & ~filters.COMMAND, rep_old)],
             REP_TITLE: [MessageHandler(filters.TEXT & ~filters.COMMAND, rep_title)],
